@@ -21,7 +21,12 @@ if (!is_null($events['events'])) {
 			if($text=="สวัสดี"){
 				$text = "สวัสดี";
 			} else {
-				$text = "ไม่เข้าใจ ว่าจะถามเรื่องไร";
+				//$text = "ไม่เข้าใจ ว่าจะถามเรื่องไร";
+				$oldid = $text;
+				$FileContents = file_get_contents("https://mua.kpru.ac.th/FrontEnd_Tabian/petition/Showstudent/".$oldid);
+				$data = json_decode($FileContents,true);
+				$data1 = $data[0];
+				$text = $data1["PNAME"].$data1["NAME"];
 			}
 
 			$messages = [
