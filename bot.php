@@ -35,7 +35,8 @@ if (!is_null($events['events'])) {
 			//$FileContents = file_get_contents("https://mua.kpru.ac.th/FrontEnd_Tabian/apiline/apiline1/");
 			$datamessage = json_decode($FileContents,true);
 
-			switch (count($datamessage) != 0 ) {
+			if(count($datamessage) != 0 )
+			switch ($datamessage['type']) {
 				case 'text':
 					$messages = [
 						'type' => 'text',
