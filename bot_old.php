@@ -17,34 +17,22 @@ if (!is_null($events['events'])) {
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
-			///////  ส่งข้อมูลไปตรวจสอบในระบบ /////
-			$postdata = http_build_query(
-			    array(
-			        'var1' => 'some cofgfdgdfgdfgdfgdfgdftent',
-			        'var2' => 'some content'
-			    )
-			);
-			$opts = array('http' =>
-			    array(
-			        'method'  => 'POST',
-			        'header'  => 'Content-type: application/x-www-form-urlencoded',
-			        'content' => $postdata
-			    )
-			);
-			$context  = stream_context_create($opts);
-			$FileContents = file_get_contents("https://mua.kpru.ac.th/FrontEnd_Tabian/apiline/apiline1/", false, $context);
-			//$FileContents = file_get_contents("https://mua.kpru.ac.th/FrontEnd_Tabian/apiline/apiline1/");
-			$datamessage = json_decode($FileContents,true);
+			// Build message to reply back
+			if($text=="สวัสดี"){
+				$text = "สวัสดี";
+			} else {
+				//$text = "ไม่เข้าใจ ว่าจะถามเรื่องไร";
+				$oldid = $text;
+				$FileContents = file_get_contents("https://mua.kpru.ac.th/FrontEnd_Tabian/petition/Showstudent/".$oldid);
+				$data = json_decode($FileContents,true);
+				$data1 = $data[0];
+				$text = $data1["PNAME"].$data1["NAME"];
+			}
 
-			/////////////
-			// $messages = [
-			// 		'type' => $datamessage['type'],
-			// 		'text' => 'ไม่พบข้อมูลที่คุณต้องการ'
-			// 	];
-
-			$messages = $datamessage['messages'];
-			
-			/////////////
+			$messages = [
+				'type' => 'text',
+				'text' => $text
+			];
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/reply';
 			$data = [
