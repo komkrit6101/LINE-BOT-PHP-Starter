@@ -46,38 +46,38 @@ if (!is_null($events['events'])) {
 				case 'image':
 					$messages = [
 						'type' => 'text',
-						'originalContentUrl': $datamessage['originalContentUrl'],
-    					'previewImageUrl': $datamessage['previewImageUrl']
+						'originalContentUrl' => $datamessage['originalContentUrl'],
+    					'previewImageUrl' => $datamessage['previewImageUrl']
 					];
 					break;	
 				case 'video':
 					$messages = [
-						'type': 'video',
-    					'originalContentUrl': $datamessage['originalContentUrl'],
-    					'previewImageUrl': $datamessage['previewImageUrl']
+						'type' => 'video',
+    					'originalContentUrl' => $datamessage['originalContentUrl'],
+    					'previewImageUrl' => $datamessage['previewImageUrl']
 					];
 					break;	
 				case 'audio':
 					$messages = [
-						'type': 'audio',
-    					'originalContentUrl': $datamessage['originalContentUrl'],
-   						'duration': $datamessage['duration']
+						'type' => 'audio',
+    					'originalContentUrl' => $datamessage['originalContentUrl'],
+   						'duration' => $datamessage['duration']
 					];
 					break;
 				case 'location':
 					$messages = [
-						'type': 'location',
-				    	'title': $datamessage['title'],
-					    'address': $datamessage['address'],
-					    'latitude': $datamessage['latitude'],
-					    'longitude': $datamessage['longitude']
+						'type' => 'location',
+				    	'title' => $datamessage['title'],
+					    'address' => $datamessage['address'],
+					    'latitude' => $datamessage['latitude'],
+					    'longitude' => $datamessage['longitude']
 					];
 					break;	
 				case 'sticker':
 					$messages = [
-						'type': 'sticker',
-						'packageId': $datamessage['packageId'],
-						'stickerId': $datamessage['stickerId']
+						'type' => 'sticker',
+						'packageId' => $datamessage['packageId'],
+						'stickerId' => $datamessage['stickerId']
 					];
 					break;
 			}
