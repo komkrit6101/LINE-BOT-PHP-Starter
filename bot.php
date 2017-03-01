@@ -20,8 +20,7 @@ if (!is_null($events['events'])) {
 			///////  ส่งข้อมูลไปตรวจสอบในระบบ /////
 			$postdata = http_build_query(
 			    array(
-			        'var1' => 'some cofgfdgdfgdfgdfgdfgdftent',
-			        'var2' => 'some content'
+			        'text' => $text
 			    )
 			);
 			$opts = array('http' =>
@@ -36,13 +35,23 @@ if (!is_null($events['events'])) {
 			//$FileContents = file_get_contents("https://mua.kpru.ac.th/FrontEnd_Tabian/apiline/apiline1/");
 			$datamessage = json_decode($FileContents,true);
 
-			/////////////
-			// $messages = [
-			// 		'type' => $datamessage['type'],
-			// 		'text' => 'ไม่พบข้อมูลที่คุณต้องการ'
-			// 	];
+			switch (count($datamessage) != 0 ) {
+				case 'text':
+					$messages = [
+						'type' => 'text',
+						'text' => $datamessage['text']
+					];
+					break;
+				
+				// default:
+				// 	# code...
+				// 	break;
+			}
 
-			$messages = $datamessage['messages'];
+			//$messages = $datamessage['messages'];
+
+
+
 			
 			/////////////
 			// Make a POST Request to Messaging API to reply to sender
