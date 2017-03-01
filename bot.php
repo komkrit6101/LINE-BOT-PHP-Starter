@@ -43,17 +43,46 @@ if (!is_null($events['events'])) {
 						'text' => $datamessage['text']
 					];
 					break;
-				
-				// default:
-				// 	# code...
-				// 	break;
+				case 'image':
+					$messages = [
+						'type' => 'text',
+						'originalContentUrl': $datamessage['originalContentUrl'],
+    					'previewImageUrl': $datamessage['previewImageUrl']
+					];
+					break;	
+				case 'video':
+					$messages = [
+						'type': 'video',
+    					'originalContentUrl': $datamessage['originalContentUrl'],
+    					'previewImageUrl': $datamessage['previewImageUrl']
+					];
+					break;	
+				case 'audio':
+					$messages = [
+						'type': 'audio',
+    					'originalContentUrl': $datamessage['originalContentUrl'],
+   						'duration': $datamessage['duration']
+					];
+					break;
+				case 'location':
+					$messages = [
+						'type': 'location',
+				    	'title': $datamessage['title'],
+					    'address': $datamessage['address'],
+					    'latitude': $datamessage['latitude'],
+					    'longitude': $datamessage['longitude']
+					];
+					break;	
+				case 'sticker':
+					$messages = [
+						'type': 'sticker',
+						'packageId': $datamessage['packageId'],
+						'stickerId': $datamessage['stickerId']
+					];
+					break;
 			}
 
-			//$messages = $datamessage['messages'];
-
-
-
-			
+		
 			/////////////
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/reply';
