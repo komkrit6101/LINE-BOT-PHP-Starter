@@ -56,7 +56,7 @@ $access_token = 'SHw1hzSoFFqTMyiAwCMiRlXYkX223Y4cyLm1ZGnazQAyleEW3WWPWtG/CEdgdhj
 		
 			/////////////
 			// Make a POST Request to Messaging API to reply to sender
-			$url = 'https://api.line.me/v2/bot/message/push';
+			$url = 'https://api.line.me/v2/bot/message/multicast';
 
 			$messages = [
 						'type' => 'text',
@@ -64,10 +64,10 @@ $access_token = 'SHw1hzSoFFqTMyiAwCMiRlXYkX223Y4cyLm1ZGnazQAyleEW3WWPWtG/CEdgdhj
 					];
 
 
-					
+			$data_user = array('Ude8479a7aa0cf30046c59823213c96ec','Udda5d67b0a09cbdaddbbb7f230ed25a6')
 
 			$data = [
-				'to' => 'Ude8479a7aa0cf30046c59823213c96ec',
+				'to' => $data_user,
 				'messages' => [$messages],
 			];
 			$post = json_encode($data);
