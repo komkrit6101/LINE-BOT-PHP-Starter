@@ -21,7 +21,9 @@ if (!is_null($events['events'])) {
 			$postdata = http_build_query(
 			    array(
 			        'text' => $text,
-			        'replyToken' => $replyToken
+			        'replyToken' => $replyToken,
+			        'userId' => $event['source']['userId']
+
 			    )
 			);
 			$opts = array('http' =>
