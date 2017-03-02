@@ -60,7 +60,7 @@ $access_token = 'SHw1hzSoFFqTMyiAwCMiRlXYkX223Y4cyLm1ZGnazQAyleEW3WWPWtG/CEdgdhj
 
 			$messages = [
 						'type' => 'text',
-						'text' => 'ทดสอบ'
+						'text' => 'ทดfdgdfgkdfgdfkg;ldfkg;lอบ'
 					];
 
 
