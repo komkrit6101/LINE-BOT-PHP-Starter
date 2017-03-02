@@ -6,65 +6,16 @@ $access_token = 'SHw1hzSoFFqTMyiAwCMiRlXYkX223Y4cyLm1ZGnazQAyleEW3WWPWtG/CEdgdhj
 
 
 
-			// if(count($datamessage) != 0 )
-			// switch ($datamessage['type']) {
-			// 	case 'text':
-			// 		$messages = [
-			// 			'type' => 'text',
-			// 			'text' => $datamessage['text']
-			// 		];
-			// 		break;
-			// 	case 'image':
-			// 		$messages = [
-			// 			'type' => 'text',
-			// 			'originalContentUrl' => $datamessage['originalContentUrl'],
-   //  					'previewImageUrl' => $datamessage['previewImageUrl']
-			// 		];
-			// 		break;	
-			// 	case 'video':
-			// 		$messages = [
-			// 			'type' => 'video',
-   //  					'originalContentUrl' => $datamessage['originalContentUrl'],
-   //  					'previewImageUrl' => $datamessage['previewImageUrl']
-			// 		];
-			// 		break;	
-			// 	case 'audio':
-			// 		$messages = [
-			// 			'type' => 'audio',
-   //  					'originalContentUrl' => $datamessage['originalContentUrl'],
-   // 						'duration' => $datamessage['duration']
-			// 		];
-			// 		break;
-			// 	case 'location':
-			// 		$messages = [
-			// 			'type' => 'location',
-			// 	    	'title' => $datamessage['title'],
-			// 		    'address' => $datamessage['address'],
-			// 		    'latitude' => $datamessage['latitude'],
-			// 		    'longitude' => $datamessage['longitude']
-			// 		];
-			// 		break;	
-			// 	case 'sticker':
-			// 		$messages = [
-			// 			'type' => 'sticker',
-			// 			'packageId' => $datamessage['packageId'],
-			// 			'stickerId' => $datamessage['stickerId']
-			// 		];
-			// 		break;
-			// }
 
-		
-			/////////////
-			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/push';
 
 			$messages = [
-						'type' => 'text',
-						'text' => 'ทดสอบ'
+						'type' => $_POST['type'],
+						'text' => $_POST['text']
 					];
 
 
-					
+  
 
 			$data = [
 				'to' => 'Ude8479a7aa0cf30046c59823213c96ec',
