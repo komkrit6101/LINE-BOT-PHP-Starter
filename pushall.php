@@ -56,15 +56,25 @@ $access_token = 'SHw1hzSoFFqTMyiAwCMiRlXYkX223Y4cyLm1ZGnazQAyleEW3WWPWtG/CEdgdhj
 		
 			/////////////
 			// Make a POST Request to Messaging API to reply to sender
+
+			$FileContents = file_get_contents("https://mua.kpru.ac.th/FrontEnd_Tabian/apiline/apiline2/");
+			//$FileContents = file_get_contents("https://mua.kpru.ac.th/FrontEnd_Tabian/apiline/apiline1/");
+			$datamessage = json_decode($FileContents,true);
+
+
+
+
+
+
 			$url = 'https://api.line.me/v2/bot/message/multicast';
 
 			$messages = [
-						'type' => 'text',
-						'text' => 'ทดfdgdfgkdfgdfkg;ldfkg;lอบ'
+						'type' => $datamessage['type'],
+						'text' => $datamessage['text']
 					];
 
 
-			$data_user = array('Ude8479a7aa0cf30046c59823213c96ec','Udda5d67b0a09cbdaddbbb7f230ed25a6');
+			$data_user = $datamessage['user'];
 
 			$data = [
 				'to' => $data_user,
