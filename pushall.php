@@ -64,7 +64,7 @@ $access_token = 'SHw1hzSoFFqTMyiAwCMiRlXYkX223Y4cyLm1ZGnazQAyleEW3WWPWtG/CEdgdhj
 					];
 
 
-			$data_user = array('Ude8479a7aa0cf30046c59823213c96ec','Udda5d67b0a09cbdaddbbb7f230ed25a6')
+			$data_user = array('Ude8479a7aa0cf30046c59823213c96ec','Udda5d67b0a09cbdaddbbb7f230ed25a6');
 
 			$data = [
 				'to' => $data_user,
