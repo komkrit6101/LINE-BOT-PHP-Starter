@@ -20,7 +20,8 @@ if (!is_null($events['events'])) {
 			///////  ส่งข้อมูลไปตรวจสอบในระบบ /////
 			$postdata = http_build_query(
 			    array(
-			        'text' => $text
+			        'text' => $text,
+			        'replyToken' => $replyToken
 			    )
 			);
 			$opts = array('http' =>
